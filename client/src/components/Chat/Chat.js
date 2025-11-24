@@ -131,10 +131,54 @@ const Chat = () => {
     return (
       <div className="outerContainer">
         <div className="container">
-          <div style={{ padding: "20px", color: "red", textAlign: "center" }}>
-            <h2>Connection Error</h2>
-            <p>{connectionError}</p>
-            <p>Make sure the server is running on {ENDPOINT}</p>
+          <div
+            style={{
+              padding: "20px",
+              color: "red",
+              textAlign: "center",
+              fontSize: "16px",
+            }}
+          >
+            <h2>⚠️ Connection Error</h2>
+            <p>
+              <strong>{connectionError}</strong>
+            </p>
+            <hr />
+            <p
+              style={{
+                marginTop: "20px",
+                textAlign: "left",
+                lineHeight: "1.8",
+              }}
+            >
+              <strong>The backend server is not running.</strong>
+            </p>
+            <p style={{ textAlign: "left", marginTop: "15px" }}>
+              <strong>To fix this:</strong>
+            </p>
+            <ol style={{ textAlign: "left", marginLeft: "20px" }}>
+              <li>Deploy the backend server to Railway.app or Render.com</li>
+              <li>
+                Get your backend URL (e.g.,{" "}
+                <code>https://your-backend.railway.app</code>)
+              </li>
+              <li>
+                Add environment variable in Vercel Dashboard:
+                <ul>
+                  <li>
+                    Name: <code>REACT_APP_ENDPOINT</code>
+                  </li>
+                  <li>Value: Your backend URL</li>
+                </ul>
+              </li>
+              <li>Push a new commit to redeploy</li>
+            </ol>
+            <p style={{ marginTop: "20px", textAlign: "left" }}>
+              📖{" "}
+              <a href="/BACKEND_DEPLOYMENT.md" style={{ color: "blue" }}>
+                See deployment instructions
+              </a>
+            </p>
           </div>
         </div>
       </div>
