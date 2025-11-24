@@ -2,12 +2,12 @@
 
 ## ✅ WHAT'S ALREADY DONE
 
-| Item | Status | Link |
-|------|--------|------|
-| React 18 & Router v6 | ✅ FIXED | - |
-| Socket.IO Real-time | ✅ WORKING | - |
-| Frontend | ✅ LIVE | https://chatrix-hzxso6mkk-atultiwari997721s-projects.vercel.app |
-| GitHub Repository | ✅ PUSHED | https://github.com/atultiwari997721/chatrix |
+| Item                 | Status     | Link                                                            |
+| -------------------- | ---------- | --------------------------------------------------------------- |
+| React 18 & Router v6 | ✅ FIXED   | -                                                               |
+| Socket.IO Real-time  | ✅ WORKING | -                                                               |
+| Frontend             | ✅ LIVE    | https://chatrix-hzxso6mkk-atultiwari997721s-projects.vercel.app |
+| GitHub Repository    | ✅ PUSHED  | https://github.com/atultiwari997721/chatrix                     |
 
 ---
 
@@ -33,6 +33,7 @@
 7. **Copy your domain** (you'll see it at the top)
 
 **It will look like:**
+
 ```
 https://chatrix-backend-xxxxx.onrender.com
 ```
@@ -44,6 +45,7 @@ https://chatrix-backend-xxxxx.onrender.com
 **GO TO:** https://vercel.com/dashboard/chatrix
 
 **Do this:**
+
 1. Settings → Environment Variables
 2. Click "Add New"
 3. Name: `REACT_APP_ENDPOINT`
@@ -58,16 +60,19 @@ https://chatrix-backend-xxxxx.onrender.com
 **OPEN:** https://chatrix-hzxso6mkk-atultiwari997721s-projects.vercel.app
 
 **In Browser Tab 1:**
+
 - Name: Alice
 - Room: test
 - Click Join
 
 **In Browser Tab 2 (Incognito/New Window):**
+
 - Name: Bob
 - Room: test
 - Click Join
 
 **Test:**
+
 - Alice types: "Hello Bob!"
 - Bob should see it **instantly** ✨
 
@@ -79,13 +84,14 @@ https://chatrix-backend-xxxxx.onrender.com
 
 These are on your GitHub repo:
 
-| Guide | Purpose | Read When |
-|-------|---------|-----------|
-| **RENDER_DETAILED_GUIDE.md** | Step-by-step with all details | Need full instructions |
-| **RENDER_QUICK_CARD.md** | Quick reference | Keep open while deploying |
-| **DEPLOY_NOW.md** | Overview of all steps | Quick overview |
+| Guide                        | Purpose                       | Read When                 |
+| ---------------------------- | ----------------------------- | ------------------------- |
+| **RENDER_DETAILED_GUIDE.md** | Step-by-step with all details | Need full instructions    |
+| **RENDER_QUICK_CARD.md**     | Quick reference               | Keep open while deploying |
+| **DEPLOY_NOW.md**            | Overview of all steps         | Quick overview            |
 
 **Access all guides:**
+
 ```
 https://github.com/atultiwari997721/chatrix
 ```
@@ -112,12 +118,12 @@ https://chatrix-hzxso6mkk-atultiwari997721s-projects.vercel.app
 
 ## ⏱️ TOTAL TIME NEEDED
 
-| Step | Time | What You Do |
-|------|------|-----------|
-| 1 | 5-10 min | Deploy backend on Render |
-| 2 | 1 min | Add env var to Vercel |
-| 3 | 2 min | Test chat in two tabs |
-| **TOTAL** | **~13 min** | **LIVE APP!** |
+| Step      | Time        | What You Do              |
+| --------- | ----------- | ------------------------ |
+| 1         | 5-10 min    | Deploy backend on Render |
+| 2         | 1 min       | Add env var to Vercel    |
+| 3         | 2 min       | Test chat in two tabs    |
+| **TOTAL** | **~13 min** | **LIVE APP!**            |
 
 ---
 
@@ -140,6 +146,7 @@ Real-time Messages Sync
 ## ✨ AFTER YOU'RE DONE
 
 Your chat app will:
+
 - ✅ Be live on the internet
 - ✅ Have real-time messaging
 - ✅ Work worldwide
@@ -151,16 +158,19 @@ Your chat app will:
 ## 🚨 IF SOMETHING GOES WRONG
 
 ### Chat connects but messages don't sync
+
 - Check that Render shows "Live" ✅
 - Check that REACT_APP_ENDPOINT is in Vercel
 - Check that the URL is correct (no typos)
 
 ### Render deployment failed
+
 - Check that Root Directory is `server`
 - Check that Build Command is `npm install`
 - Check that Start Command is `npm start`
 
 ### Can't find chatrix repo on Render
+
 - Make sure you authorized Render with GitHub
 - Make sure the repo is public on GitHub
 - Try refreshing the Render page
@@ -179,6 +189,7 @@ Your chat app will:
 ## 🎉 YOU'RE SO CLOSE!
 
 All the hard work is done. Now it's just:
+
 1. Click buttons on Render
 2. Wait a few minutes
 3. Copy a URL

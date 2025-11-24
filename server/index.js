@@ -13,18 +13,12 @@ const server = http.createServer(app);
 // Configure socket.io with CORS
 const io = socketio(server, {
   cors: {
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:3002",
-      "http://127.0.0.1:3000",
-      "http://127.0.0.1:3001",
-      "http://127.0.0.1:3002",
-    ],
+    origin: true, // Accept all origins - safer for production
     methods: ["GET", "POST"],
     credentials: true,
   },
   transports: ["websocket", "polling"],
+  allowEIO3: true,
 });
 
 app.use(cors());

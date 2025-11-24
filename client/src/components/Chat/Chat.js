@@ -54,6 +54,11 @@ const Chat = () => {
     setName(name);
     setRoom(room);
 
+    // Log the endpoint being used for debugging
+    console.log("📍 Connecting to endpoint:", ENDPOINT);
+    console.log("🌐 Current hostname:", window.location.hostname);
+    console.log("🔗 Full origin:", window.location.origin);
+
     // Create socket connection with error handling
     socket = io(ENDPOINT, {
       reconnection: true,
@@ -61,6 +66,8 @@ const Chat = () => {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5,
       transports: ["websocket", "polling"],
+      secure: true,
+      rejectUnauthorized: false,
     });
 
     socket.on("connect", () => {
@@ -77,7 +84,8 @@ const Chat = () => {
 
     socket.on("connect_error", (error) => {
       console.error("Connection error:", error);
-      setConnectionError(`Connection failed: ${error.message || error}`);
+      const errorMsg = error?.message || String(error) || "Unknown connection error";
+      setConnectionError(`Connection failed: ${errorMsg}`);
     });
 
     socket.on("disconnect", (reason) => {

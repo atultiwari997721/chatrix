@@ -7,12 +7,15 @@
 ## 📋 STEP 1: Go to Render.com
 
 ### Option A: Direct Link (Fastest)
+
 **Click this link:**
+
 ```
 https://render.com/new
 ```
 
 ### Option B: Manual Steps
+
 1. Open https://render.com
 2. Click **"New +"** button (top right)
 3. Select **"Web Service"**
@@ -34,6 +37,7 @@ When you first visit Render, you'll see:
 **Click:** "Continue with GitHub"
 
 **You'll be redirected to GitHub to authorize Render:**
+
 - Read the permissions (Render needs access to your repos)
 - Click **"Authorize render-oss"** (or similar)
 
@@ -53,6 +57,7 @@ After authorization, Render shows:
 ```
 
 **What you'll see:**
+
 - A list of your GitHub repositories appears
 - You should see **"chatrix"** in the list
 
@@ -67,6 +72,7 @@ After authorization, Render shows:
 After connecting, you'll see a form with these fields:
 
 ### 4.1 - Name
+
 ```
 Name: ________________
 
@@ -74,6 +80,7 @@ Enter: chatrix-backend
 ```
 
 ### 4.2 - Root Directory
+
 ```
 Root Directory: ________________
 
@@ -83,6 +90,7 @@ Enter: server
 **IMPORTANT:** This tells Render where your backend code is (in the `server` folder)
 
 ### 4.3 - Build Command
+
 ```
 Build Command: ________________
 
@@ -92,6 +100,7 @@ Enter: npm install
 **This installs your dependencies before starting**
 
 ### 4.4 - Start Command
+
 ```
 Start Command: ________________
 
@@ -101,6 +110,7 @@ Enter: npm start
 **This runs your server on startup**
 
 ### 4.5 - Environment
+
 ```
 Environment: ________________
 
@@ -108,6 +118,7 @@ Leave BLANK (defaults are fine)
 ```
 
 ### 4.6 - Plan
+
 Look for this section:
 
 ```
@@ -159,11 +170,13 @@ You'll see a screen like this:
 ```
 
 **This takes 3-5 minutes.** You'll see:
+
 1. "Installing dependencies" ✓
 2. "Running npm start" ✓
 3. "Server has started" ✓
 
 **Wait until you see:**
+
 ```
 STATUS: Live ✅ (in green)
 ```
@@ -186,6 +199,7 @@ Once it says **"Live"**, at the top of the page you'll see:
 ```
 
 **Your domain will look like one of these:**
+
 ```
 https://chatrix-backend-abc123.onrender.com
 https://chatrix-backend-xyz789.onrender.com
@@ -230,6 +244,7 @@ Once your backend domain is copied (e.g., `https://chatrix-backend-xxxxx.onrende
 ### ❌ Deployment Failed / Shows "Failed" Status
 
 **Check the logs:**
+
 1. Click on the service
 2. Scroll to see the error messages
 3. Common issues:
@@ -238,6 +253,7 @@ Once your backend domain is copied (e.g., `https://chatrix-backend-xxxxx.onrende
    - Port issues
 
 **Solution:**
+
 - Verify Root Directory is set to `server`
 - Verify Build Command is `npm install`
 - Verify Start Command is `npm start`
@@ -249,10 +265,12 @@ Wait a few more minutes. Sometimes it takes longer.
 ### ❌ Backend Responds but Chat Doesn't Connect
 
 This means:
+
 1. Backend is running ✅
 2. Frontend can't find it
 
 **Solution:**
+
 - Make sure you added `REACT_APP_ENDPOINT` to Vercel
 - Make sure the URL is correct (no typos)
 - Wait 30 seconds for Vercel to redeploy
@@ -280,12 +298,12 @@ This means:
 
 ## 📍 KEY URLS
 
-| What | URL |
-|------|-----|
-| Render New Service | https://render.com/new |
-| Render Dashboard | https://render.com/dashboard |
-| GitHub Repo | https://github.com/atultiwari997721/chatrix |
-| Vercel Dashboard | https://vercel.com/dashboard/chatrix |
+| What                | URL                                                             |
+| ------------------- | --------------------------------------------------------------- |
+| Render New Service  | https://render.com/new                                          |
+| Render Dashboard    | https://render.com/dashboard                                    |
+| GitHub Repo         | https://github.com/atultiwari997721/chatrix                     |
+| Vercel Dashboard    | https://vercel.com/dashboard/chatrix                            |
 | Chat App (Frontend) | https://chatrix-hzxso6mkk-atultiwari997721s-projects.vercel.app |
 
 ---
@@ -302,6 +320,7 @@ This means:
 ## 🚀 YOU'RE ALMOST THERE!
 
 Once you complete this step, you'll have:
+
 - ✅ Frontend live on Vercel
 - ✅ Backend running on Render
 - ✅ Real-time chat working worldwide
