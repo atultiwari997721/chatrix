@@ -10,8 +10,22 @@ import Input from "../Input/Input";
 
 import "./Chat.css";
 
-// Try local server first, fall back to environment variable
-const ENDPOINT = process.env.REACT_APP_ENDPOINT || "http://localhost:3005";
+// Detect environment and set appropriate endpoint
+const getEndpoint = () => {
+  // If in production (Vercel domain)
+  if (
+    typeof window !== "undefined" &&
+    window.location.hostname.includes("vercel.app")
+  ) {
+    // Try to use the same domain with /api path for Socket.IO
+    return window.location.origin;
+  }
+
+  // Otherwise use environment variable or localhost
+  return process.env.REACT_APP_ENDPOINT || "http://localhost:3005";
+};
+
+const ENDPOINT = getEndpoint();
 
 let socket;
 
