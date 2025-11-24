@@ -1,14 +1,14 @@
-# 📦 Complete Railway Deployment Instructions
+# 📦 Complete Render Deployment Instructions
 
 Your chat app is **95% ready**. Just need to deploy the backend!
 
 ## ✅ What's Done
 
 - ✅ Frontend deployed on Vercel
-- ✅ All code ready for Railway
-- ⏳ Backend needs Railway deployment
+- ✅ All code ready for Render
+- ⏳ Backend needs Render deployment
 
-## 🚀 Deploy to Railway in 3 Steps
+## 🚀 Deploy to Render in 3 Steps
 
 ### Step 1: Create GitHub Repository (2 minutes)
 
@@ -33,26 +33,29 @@ Replace `YOUR_USERNAME` with your actual GitHub username (e.g., `atultiwari99772
 4. Create repository
 5. Follow the commands displayed
 
-### Step 2: Deploy Backend to Railway (3 minutes)
+### Step 2: Deploy Backend to Render (3 minutes)
 
-1. **Go to:** https://railway.app/new
-2. **Click:** "Deploy from GitHub repo"
-3. **Select:** `YOUR_USERNAME/chatrix` repository
+1. **Go to:** https://render.com
+2. **Click:** "New +" → "Web Service"
+3. **Connect:** your GitHub account and select the **chatrix** repository
 4. **Configure:**
+   - Name: `chatrix-backend`
    - Root Directory: `server` ← **Very Important!**
-   - Railway will auto-detect Node.js
-5. **Click:** "Deploy"
-6. **Wait:** 2-3 minutes for green "Active" status
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+   - Environment: Node 18+
+   - Plan: Free
+5. **Click:** "Create Web Service"
+6. **Wait:** 2-3 minutes for green "Live" status
 
 ### Step 3: Connect Frontend to Backend (1 minute)
 
-After Railway shows "Active":
+After Render shows "Live":
 
 1. **Get Backend URL:**
 
-   - In Railway dashboard, click the deployed service
-   - Go to "Settings" → "Domains"
-   - Copy your domain (looks like: `https://chatrix-production-xxxxx.railway.app`)
+   - In Render dashboard, click the deployed service
+   - At the top, copy your domain (looks like: `https://chatrix-backend-xxxxx.onrender.com`)
 
 2. **Update Vercel:**
 
@@ -60,7 +63,7 @@ After Railway shows "Active":
    - Settings → Environment Variables
    - Click "Add New"
    - Name: `REACT_APP_ENDPOINT`
-   - Value: Paste your Railway domain
+   - Value: Paste your Render domain
    - Add for: `Production`
    - Click "Save"
 
@@ -96,8 +99,8 @@ Once everything is deployed:
 Check these things:
 
 - [ ] GitHub repo created at https://github.com/YOUR_USERNAME/chatrix
-- [ ] Railway shows "Active" status
-- [ ] Railway domain copied and saved
+- [ ] Render shows "Live" status
+- [ ] Render domain copied and saved
 - [ ] Vercel environment variable added
 - [ ] Vercel shows new deployment
 - [ ] Chat app loads without connection error

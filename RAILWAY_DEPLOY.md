@@ -1,101 +1,75 @@
-# Deploy to Railway
+# Deploy to Render.com
 
-You can deploy this chat application directly to Railway with the button below, or follow the manual steps.
+You can deploy this chat application backend to Render.com for free. Follow these steps:
 
-## 🚀 Quick Deploy to Railway
+## 🚀 Deploy Backend to Render
 
-Click this link to deploy:
+### 1. Create a GitHub Account (if needed)
 
+- Go to https://github.com/signup
+- Create an account and verify your email
+
+### 2. Push Code to GitHub
+
+```bash
+cd K:\chatrix
+git remote add origin https://github.com/YOUR_USERNAME/chatrix.git
+git branch -M main
+git push -u origin main
 ```
-https://railway.app/new?template=https://github.com/YOUR_USERNAME/chatrix&envs=PORT&PORT=default:3000
-```
 
-Or follow these manual steps:
+Replace `YOUR_USERNAME` with your actual GitHub username
 
-### Manual Deployment Steps
+### 3. Deploy to Render
 
-1. **Create GitHub Account** (if you don't have one)
+- Go to https://render.com
+- Click "New +" → "Web Service"
+- Connect your GitHub account and select the **chatrix** repository
+- Configure the service:
+  - **Name:** chatrix-backend
+  - **Root Directory:** `server`
+  - **Build Command:** `npm install`
+  - **Start Command:** `npm start`
+  - **Environment:** Node 18+
+  - **Plan:** Free
+- Click "Create Web Service"
+- Wait for the status to show **Live** (green)
 
-   - Go to https://github.com/signup
-   - Create account and verify email
+### 4. Get Your Render Backend URL
 
-2. **Create New Repository**
+- In the Render dashboard, click your new service (chatrix-backend)
+- At the top, copy the domain (e.g., `https://chatrix-backend-xxxxx.onrender.com`)
 
-   - Go to https://github.com/new
-   - Name it: `chatrix`
-   - Make it Public (important for Railway)
-   - Click "Create repository"
+### 5. Update Vercel with Backend URL
 
-3. **Push Code to GitHub**
+- Go to https://vercel.com/dashboard/chatrix
+- Settings → Environment Variables
+- Add:
+  - **Name:** `REACT_APP_ENDPOINT`
+  - **Value:** Paste your Render domain (e.g., `https://chatrix-backend-xxxxx.onrender.com`)
+- Save (Vercel will auto-redeploy)
 
-   ```bash
-   cd K:\chatrix
-   git remote add origin https://github.com/YOUR_USERNAME/chatrix.git
-   git branch -M main
-   git push -u origin main
-   ```
+### 6. Test
 
-   Replace `YOUR_USERNAME` with your actual GitHub username
-
-4. **Deploy to Railway**
-
-   - Go to https://railway.app
-   - Sign in with GitHub
-   - Click "New Project" → "Deploy from GitHub repo"
-   - Select **chatrix** repository
-   - Railway will auto-detect settings
-
-5. **Configure Railway**
-
-   - Root Directory: `server`
-   - Node Version: 18 or higher (auto-detected)
-   - Click "Deploy"
-   - Wait for green "Active" status (2-3 minutes)
-
-6. **Get Backend URL**
-
-   - Click your deployment in Railway
-   - Go to "Settings" → "Environment"
-   - Copy the domain URL
-
-7. **Update Vercel**
-
-   - Go to https://vercel.com/dashboard/chatrix
-   - Settings → Environment Variables
-   - Add: `REACT_APP_ENDPOINT` = Your Railway domain
-   - Save (auto-redeploy)
-
-8. **Test**
-   - Open frontend URL
-   - Join a room
-   - Messages should now work! ✅
-
----
-
-## Environment Variables for Railway
-
-These are automatically set:
-
-- `PORT`: 3000 (Railway default)
-- `NODE_ENV`: production
-
-No additional setup needed!
+- Open your frontend URL
+- Join a room
+- Messages should now work! ✅
 
 ---
 
 ## Troubleshooting
 
-- **Railway shows error**: Check that root directory is set to `server`
-- **Still can't connect**: Verify `REACT_APP_ENDPOINT` in Vercel matches Railway domain exactly
-- **Build fails**: Check that server/package.json has all dependencies
+- **Render shows error:** Check that root directory is set to `server`
+- **Still can't connect:** Verify `REACT_APP_ENDPOINT` in Vercel matches your Render domain exactly
+- **Build fails:** Check that `server/package.json` has all dependencies
 
 ---
 
 ## Next Steps
 
-After Railway deploys successfully:
+After Render deploys successfully:
 
-1. Get your backend URL from Railway
+1. Get your backend URL from Render
 2. Add it to Vercel as environment variable
 3. Vercel auto-redeploys
 4. Chat should work! 🎉

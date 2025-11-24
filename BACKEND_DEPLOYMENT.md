@@ -1,94 +1,64 @@
-# Deploy Backend to Railway.app
+# Deploy Backend to Render.com
 
-Railway.app offers a free tier for hosting Node.js applications with WebSocket support.
+Render.com offers a free tier for hosting Node.js applications with WebSocket support.
 
 ## Quick Deploy Steps
 
-### Option 1: Deploy via Railway CLI (Fastest)
+### 1. Push Code to GitHub
 
-1. **Install Railway CLI:**
+```bash
+cd K:\chatrix
+git remote add origin https://github.com/YOUR_USERNAME/chatrix.git
+git branch -M main
+git push -u origin main
+```
 
-   ```bash
-   npm install -g @railway/cli
-   ```
+Replace `YOUR_USERNAME` with your actual GitHub username
 
-2. **Login to Railway:**
-
-   ```bash
-   railway login
-   ```
-
-3. **Deploy Backend:**
-
-   ```bash
-   cd K:\chatrix\server
-   railway init
-   railway up
-   ```
-
-4. **Get your backend URL:**
-   - Go to https://railway.app/dashboard
-   - Find your deployed service
-   - Copy the domain (e.g., `https://yourapp-production.up.railway.app`)
-
-### Option 2: Deploy via Railway Dashboard
-
-1. Go to https://railway.app
-2. Click "New Project" → "Deploy from GitHub"
-3. Select your chatrix repository
-4. Configure:
-
-   - **Root Directory:** `server`
-   - **Start Command:** `npm start`
-   - **Environment:** Add `PORT=3000`
-
-5. Get the domain from the deployment
-
-### Option 3: Use Render.com (Alternative)
+### 2. Deploy Backend to Render
 
 1. Go to https://render.com
 2. Click "New +" → "Web Service"
-3. Connect GitHub
+3. Connect your GitHub account and select the **chatrix** repository
 4. Configure:
-   - **Name:** chatrix-server
+   - **Name:** chatrix-backend
    - **Root Directory:** server
    - **Build Command:** npm install
    - **Start Command:** npm start
    - **Plan:** Free tier
+5. Click "Create Web Service"
+6. Wait for the status to show **Live** (green)
 
-## Update Frontend with Backend URL
+### 3. Get Your Render Backend URL
 
-Once you have the backend deployed:
+1. In the Render dashboard, click your new service (chatrix-backend)
+2. At the top, copy the domain (e.g., `https://chatrix-backend-xxxxx.onrender.com`)
+
+### 4. Update Frontend with Backend URL
 
 1. Go to Vercel Dashboard
 2. Select **chatrix** project
 3. Go to **Settings** → **Environment Variables**
 4. Add:
-
    - **Name:** `REACT_APP_ENDPOINT`
-   - **Value:** `https://your-backend-domain.up.railway.app` (or your Render domain)
+   - **Value:** `https://chatrix-backend-xxxxx.onrender.com`
    - **Add for:** Production, Preview, Development
-
-5. Redeploy by pushing a new commit:
-   ```bash
-   git add .
-   git commit -m "Update backend endpoint"
-   git push
-   ```
+5. Save and Vercel will auto-redeploy
 
 ## Testing
 
 After updating the backend URL:
 
-1. Open https://chatrix-delta.vercel.app
+1. Open your Vercel frontend URL
 2. Join a room
 3. Open another tab and join the same room
 4. Messages should now sync in real-time!
 
 ## Free Tier Limits
 
-- **Railway:** 500 hours/month (free)
 - **Render:** 750 hours/month (free)
-- Both support WebSocket/Socket.IO connections
+- Supports WebSocket/Socket.IO connections
 
-Choose whichever you prefer!
+---
+
+**You are now fully Render-ready!**

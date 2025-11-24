@@ -6,7 +6,7 @@
 Frontend:  ✅ DEPLOYED on Vercel
            https://chatrix-bh732bv0n-atultiwari997721s-projects.vercel.app
 
-Backend:   ⏳ READY TO DEPLOY on Railway
+Backend:   ⏳ READY TO DEPLOY on Render
            (Need to push to GitHub first, then deploy)
 
 Code:      ✅ Ready in K:\chatrix
@@ -23,16 +23,18 @@ STEP 1: Push to GitHub
 
         ↓
 
-STEP 2: Deploy to Railway
-        Go to: https://railway.app/new
-        Select: Deploy from GitHub → chatrix
+STEP 2: Deploy to Render
+        Go to: https://render.com
+        Click: New + → Web Service
+        Select: chatrix repo
+        Set root dir to: server
         Time: 3 minutes
 
         ↓
 
 STEP 3: Connect Frontend to Backend
         Add env var in Vercel: REACT_APP_ENDPOINT
-        Paste: Railway domain URL
+        Paste: Render domain URL
         Time: 1 minute
 
         ↓
@@ -43,7 +45,7 @@ DONE! Chat app is fully functional 🎉
 ## Files to Read (In Order)
 
 1. **FINAL_DEPLOYMENT_STEPS.md** ← Start here! (Read first)
-2. **RAILWAY_DEPLOY.md** (Detailed Railway steps)
+2. **RAILWAY_DEPLOY.md** (now Render-only)
 3. **README.md** (Project overview)
 
 ## Key Information
@@ -52,13 +54,13 @@ DONE! Chat app is fully functional 🎉
 
 - What: Your code repository
 - Where: https://github.com/NEW_USERNAME/chatrix
-- Why: Railway needs it to deploy
+- Why: Render needs it to deploy
 
-### Railway
+### Render
 
 - What: Backend server with WebSocket
-- Where: https://railway.app
-- Deploy: "Deploy from GitHub repo" → select chatrix
+- Where: https://render.com
+- Deploy: "New +" → "Web Service" → select chatrix
 - Root Directory: `server` (important!)
 
 ### Vercel
@@ -80,15 +82,16 @@ DURING DEPLOYMENT:
   git branch -M main
   git push -u origin main
 
-□ Step 2: Deploy to Railway (3 min)
-  Go to: https://railway.app/new
+□ Step 2: Deploy to Render (3 min)
+  Go to: https://render.com
+  Click: New + → Web Service
   Select chatrix repo
   Set root dir to: server
-  Click Deploy
+  Click Create Web Service
 
 □ Step 3: Connect to Vercel (1 min)
   Go to Vercel dashboard
-  Add env var: REACT_APP_ENDPOINT = Railway domain
+  Add env var: REACT_APP_ENDPOINT = Render domain
 
 AFTER DEPLOYMENT:
 □ Test in two browser tabs

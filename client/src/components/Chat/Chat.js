@@ -10,22 +10,8 @@ import Input from "../Input/Input";
 
 import "./Chat.css";
 
-// Detect environment and set appropriate endpoint
-const getEndpoint = () => {
-  // If in production (Vercel domain)
-  if (
-    typeof window !== "undefined" &&
-    window.location.hostname.includes("vercel.app")
-  ) {
-    // Try to use the same domain with /api path for Socket.IO
-    return window.location.origin;
-  }
-
-  // Otherwise use environment variable or localhost
-  return process.env.REACT_APP_ENDPOINT || "http://localhost:3005";
-};
-
-const ENDPOINT = getEndpoint();
+// Always use REACT_APP_ENDPOINT in production, fallback to localhost for dev
+const ENDPOINT = process.env.REACT_APP_ENDPOINT || "http://localhost:3005";
 
 let socket;
 
@@ -84,7 +70,8 @@ const Chat = () => {
 
     socket.on("connect_error", (error) => {
       console.error("Connection error:", error);
-      const errorMsg = error?.message || String(error) || "Unknown connection error";
+      const errorMsg =
+        error?.message || String(error) || "Unknown connection error";
       setConnectionError(`Connection failed: ${errorMsg}`);
     });
 
@@ -165,10 +152,12 @@ const Chat = () => {
               <strong>To fix this:</strong>
             </p>
             <ol style={{ textAlign: "left", marginLeft: "20px" }}>
-              <li>Deploy the backend server to Railway.app or Render.com</li>
+              <li>
+                Deploy the backend server to <strong>Render.com</strong>
+              </li>
               <li>
                 Get your backend URL (e.g.,{" "}
-                <code>https://your-backend.railway.app</code>)
+                <code>https://chatrix-backend-xxxxx.onrender.com</code>)
               </li>
               <li>
                 Add environment variable in Vercel Dashboard:
@@ -179,7 +168,9 @@ const Chat = () => {
                   <li>Value: Your backend URL</li>
                 </ul>
               </li>
-              <li>Push a new commit to redeploy</li>
+              <li>
+                Push a new commit to redeploy or trigger a redeploy in Vercel
+              </li>
             </ol>
             <p style={{ marginTop: "20px", textAlign: "left" }}>
               📖{" "}

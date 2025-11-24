@@ -49,7 +49,7 @@ In Vercel Dashboard:
 1. Go to Project Settings → Environment Variables
 2. Add the following:
    - Name: `REACT_APP_ENDPOINT`
-   - Value: `https://your-vercel-domain.vercel.app/api`
+   - Value: `https://chatrix-backend-xxxxx.onrender.com` (your Render backend domain)
    - Add for: Production, Preview, Development
 
 ## Step 4: Update Chat Component (if needed)
@@ -70,7 +70,7 @@ After deployment completes:
 ### WebSocket connection fails
 
 - Ensure CORS is properly configured in `server/index.js`
-- Check that `REACT_APP_ENDPOINT` is set correctly in environment variables
+- Check that `REACT_APP_ENDPOINT` is set correctly in environment variables (should be your Render backend domain)
 - WebSocket may not work in some environments; polling will be used as fallback
 
 ### Build fails
@@ -81,7 +81,7 @@ After deployment completes:
 
 ### Messages not sending
 
-- Ensure the backend API is responding at health check endpoint
+- Ensure the backend API is responding at health check endpoint (your Render backend URL)
 - Check browser console for socket.io errors
 - Verify CORS headers are being sent
 
