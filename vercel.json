@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "npm install -g vercel && cd client && npm ci && npm run build",
+  "framework": "create-react-app",
+  "buildCommand": "cd client && npm ci && npm run build",
   "outputDirectory": "client/build",
   "installCommand": "npm ci",
-  "framework": "react",
   "env": {
     "REACT_APP_ENDPOINT": "@react_app_endpoint"
   },
