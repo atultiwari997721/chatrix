@@ -1,0 +1,22 @@
+{
+  "name": "chatrix",
+  "version": "1.0.0",
+  "description": "A real-time chat application built with React and Node.js",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "start": "npm run install-all",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "chat",
+    "real-time",
+    "socket.io",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "18.x || 20.x || 22.x"
+  }
+}

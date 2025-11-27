@@ -4,11 +4,10 @@
   "buildCommand": "cd client && npm install && npm run build",
   "outputDirectory": "client/build",
   "installCommand": "npm install",
+  "env": {
+    "REACT_APP_ENDPOINT": "@react_app_endpoint"
+  },
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api"
-    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
@@ -16,11 +15,23 @@
   ],
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "public, s-maxage=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
     }
