@@ -5,31 +5,47 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  background: white;
+  gap: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
 }
 
 .messages::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 .messages::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: linear-gradient(180deg, #f5f7fb 0%, #f0f2f7 100%);
   border-radius: 10px;
 }
 
 .messages::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
   border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .messages::-webkit-scrollbar-thumb:hover {
-  background: #667eea;
+  background: linear-gradient(180deg, #5568d3 0%, #6b3f8f 100%);
+  box-shadow: 0 0 6px rgba(102, 126, 234, 0.4);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .messages {
-    padding: 15px 15px;
-    gap: 6px;
+    padding: 12px 12px;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .messages {
+    padding: 16px 18px;
+    gap: 9px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .messages {
+    padding: 24px 30px;
+    gap: 12px;
   }
 }
