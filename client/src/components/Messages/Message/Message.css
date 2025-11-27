@@ -146,6 +146,14 @@
   }
 }
 
+@media (min-width: 900px) and (max-width: 1200px) {
+  .messageBox {
+    max-width: 72%;
+    padding: 12px 16px;
+    font-size: 1em;
+  }
+}
+
 @media (min-width: 1440px) {
   .messageBox {
     padding: 13px 18px;

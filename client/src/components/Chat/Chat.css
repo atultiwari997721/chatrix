@@ -1,10 +1,12 @@
 .outerContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: stretch;
+  min-height: 100vh;
+  width: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 15px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
@@ -48,12 +50,14 @@
   flex-direction: column;
   justify-content: space-between;
   background: white;
-  border-radius: 24px;
-  height: 85vh;
-  width: 45%;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  /* Use the dynamic viewport height variable for reliable full-screen on mobile */
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  max-width: none;
+  box-shadow: none;
   overflow: hidden;
-  animation: slideUp 0.6s ease-out;
+  animation: none;
   position: relative;
   z-index: 1;
 }
@@ -71,13 +75,13 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
   .outerContainer {
-    height: 100%;
-    padding: 0;
+    min-height: 100%;
+    padding: 6px 8px;
   }
 
   .container {
     width: 100%;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     border-radius: 0;
     box-shadow: none;
   }
@@ -86,7 +90,7 @@
 @media (min-width: 480px) and (max-width: 768px) {
   .container {
     width: 95%;
-    height: 92vh;
+    height: calc(var(--vh, 1vh) * 0.92 * 100);
     border-radius: 20px;
   }
 }
@@ -94,21 +98,38 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .container {
     width: 90%;
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 0.9 * 100);
     border-radius: 22px;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
   .container {
-    width: 65%;
-    height: 85vh;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    width: 50%;
-    height: 90vh;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+/* Desktop layout: show chat + text panel side-by-side */
+/* Force full-screen layout on larger devices (no side panel) */
+@media (min-width: 900px) {
+  .outerContainer {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .container {
+    border-radius: 0;
+    height: 100vh;
+    width: 100%;
+    max-width: none;
+    box-shadow: none;
   }
 }

@@ -8,6 +8,10 @@
   gap: 50px;
   animation: slideInLeft 0.8s ease-out;
 }
+.textContainer {
+  /* Hidden: remove the right-side marketing panel so chat uses full screen */
+  display: none !important;
+}
 
 @keyframes slideInLeft {
   from {
@@ -84,9 +88,29 @@
   line-height: 1.4;
 }
 
-@media (min-width: 320px) and (max-width: 1200px) {
+/* Hide text column for smaller screens (phones/tablets) */
+@media (max-width: 900px) {
   .textContainer {
     display: none;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .textContainer {
+    margin-left: 40px;
+    gap: 28px;
+  }
+
+  .textContainer h1 {
+    font-size: 2em;
+  }
+
+  .textContainer h2 {
+    font-size: 1.15em;
+  }
+
+  .activeItem {
+    font-size: 1em;
   }
 }
 
@@ -105,31 +129,8 @@
   }
 
   .activeItem {
-    font-size: 1em;
+    font-size: 1.05em;
   }
 }
 
-@media (min-width: 1440px) {
-  .textContainer {
-    margin-left: 100px;
-    gap: 60px;
-  }
-
-  .textContainer h1 {
-    font-size: 2.6em;
-  }
-
-  .textContainer h2 {
-    font-size: 1.5em;
-  }
-
-  .activeItem {
-    font-size: 1.25em;
-    gap: 18px;
-  }
-
-  .activeContainer img {
-    width: 50px;
-    height: 50px;
-  }
-}
+/* Text container removed: no responsive rules required */

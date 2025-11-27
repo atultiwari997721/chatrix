@@ -32,9 +32,50 @@
   align-items: center;
   color: white;
   font-weight: 700;
-  font-size: 1.1em;
+  font-size: 1.05em;
   letter-spacing: -0.3px;
   word-break: break-word;
+}
+
+.roomBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.roomTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.roomTitle h3 {
+  margin: 0;
+  font-size: 1.05em;
+  font-weight: 800;
+}
+
+.roomMeta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.85em;
+  opacity: 0.95;
+}
+
+.roomMeta .latest {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.roomMeta .count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.8em;
 }
 
 .rightInnerContainer {
@@ -45,16 +86,13 @@
 }
 
 .onlineIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-weight: 700;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .onlineIcon::before {
@@ -98,9 +136,8 @@
   }
 
   .onlineIcon {
-    gap: 6px;
-    padding: 5px 10px;
-    font-size: 0.85em;
+    width: 12px;
+    height: 12px;
   }
 
   .onlineIcon::before {

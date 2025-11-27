@@ -3,7 +3,6 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import TextContainer from "../TextContainer/TextContainer";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
@@ -24,6 +23,35 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [connectionError, setConnectionError] = useState("");
+
+  useEffect(() => {
+    // Set CSS variable --vh to handle mobile browser UI (keyboard/show/hide)
+    const setVh = () => {
+      try {
+        const vh =
+          (window.visualViewport && window.visualViewport.height) ||
+          window.innerHeight;
+        document.documentElement.style.setProperty("--vh", `${vh * 0.01}px`);
+      } catch (e) {
+        document.documentElement.style.setProperty("--vh", `1vh`);
+      }
+    };
+
+    setVh();
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", setVh);
+    }
+    window.addEventListener("resize", setVh);
+
+    // cleanup
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", setVh);
+      }
+      window.removeEventListener("resize", setVh);
+    };
+    // only run once on mount
+  }, []);
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -187,7 +215,7 @@ const Chat = () => {
   return (
     <div className="outerContainer">
       <div className="container">
-        <InfoBar room={room} />
+        <InfoBar room={room} users={users} />
         <Messages messages={messages} name={name} />
         <Input
           message={message}
@@ -195,7 +223,6 @@ const Chat = () => {
           sendMessage={sendMessage}
         />
       </div>
-      <TextContainer users={users} />
     </div>
   );
 };

@@ -7,6 +7,10 @@
   flex-direction: column;
   gap: 10px;
   background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+  /* reserve bottom space so sticky input is not overlapped by keyboard */
+  padding-bottom: calc(
+    var(--form-height, 72px) + env(safe-area-inset-bottom, 12px)
+  );
 }
 
 .messages::-webkit-scrollbar {
@@ -40,6 +44,13 @@
   .messages {
     padding: 16px 18px;
     gap: 9px;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .messages {
+    padding: 20px 22px;
+    gap: 10px;
   }
 }
 
