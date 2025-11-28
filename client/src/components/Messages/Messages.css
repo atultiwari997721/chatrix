@@ -35,16 +35,19 @@
 
 @media (max-width: 480px) {
   .messages {
-    padding: 12px 12px;
-    gap: 8px;
-  }
+    padding: 20px 25px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+    /* reserve bottom space so the sticky input is never obscured by keyboard */
+    padding-bottom: calc(var(--form-height, 64px) + env(safe-area-inset-bottom, 12px));
+    /* reserve top space so fixed InfoBar doesn't obscure first messages */
+    padding-top: calc(var(--info-height, 72px) + 8px);
 }
-
-@media (min-width: 480px) and (max-width: 768px) {
-  .messages {
-    padding: 16px 18px;
-    gap: 9px;
-  }
 }
 
 @media (min-width: 900px) and (max-width: 1200px) {

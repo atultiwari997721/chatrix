@@ -1,14 +1,18 @@
 .infoBar {
+  --info-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 24px 24px 0 0;
-  height: 72px;
+  height: var(--info-height);
   width: 100%;
-  padding: 0 30px;
+  padding: 0 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
 }
 
 .infoBar::after {
@@ -121,9 +125,9 @@
 
 @media (max-width: 480px) {
   .infoBar {
-    height: 64px;
-    padding: 0 15px;
-    border-radius: 20px 20px 0 0;
+    --info-height: 64px;
+    height: var(--info-height);
+    padding: 0 12px;
   }
 
   .leftInnerContainer {

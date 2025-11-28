@@ -62,6 +62,11 @@
   z-index: 1;
 }
 
+/* add top padding so fixed InfoBar doesn't cover content */
+.container {
+  padding-top: var(--info-height, 72px);
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
