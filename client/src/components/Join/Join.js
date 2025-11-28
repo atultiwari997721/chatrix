@@ -23,7 +23,7 @@ export default function SignIn() {
         alert("Please enter a room name first!");
         return;
     }
-    const link = `${window.location.origin}/join?room=${room}`;
+    const link = `${window.location.origin}/#/join?room=${room}`;
     navigator.clipboard.writeText(link).then(() => {
       alert("Link copied to clipboard!");
     }, (err) => {
