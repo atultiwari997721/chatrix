@@ -66,6 +66,7 @@
   font-weight: 600;
   font-size: 0.85em;
   opacity: 0.95;
+  white-space: nowrap;
 }
 
 .roomMeta .latest {
@@ -97,6 +98,17 @@
   background: #4ade80;
   box-shadow: 0 0 8px rgba(74, 222, 128, 0.9);
   border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.rightInnerContainer img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rightInnerContainer img:hover {
+  transform: scale(1.1);
 }
 
 .onlineIcon::before {
