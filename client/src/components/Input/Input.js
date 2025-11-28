@@ -1,36 +1,44 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import "./Input.css";
 
-const Input = ({ setMessage, sendMessage, message }) => {
-  const inputRef = useRef(null);
-
-  const handleFocus = () => {
-    // Small timeout to allow mobile keyboard to open before scrolling
-    setTimeout(() => {
-      inputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 300);
-  };
-
-  return (
-    <form className="form">
-      <input
-        ref={inputRef}
-        className="input"
-        type="text"
-        placeholder="Type a message..."
-        value={message}
-        onFocus={handleFocus}
-        onChange={({ target: { value } }) => setMessage(value)}
-        onKeyPress={(event) =>
-          event.key === "Enter" ? sendMessage(event) : null
-        }
-      />
-      <button className="sendButton" onClick={(e) => sendMessage(e)}>
-        Send
-      </button>
-    </form>
-  );
-};
+const Input = ({ setMessage, sendMessage, message }) => (
+  <form className="form">
+    <input
+      className="input"
+      type="text"
+      placeholder="Type a message..."
+      value={message}
+      onChange={({ target: { value } }) => setMessage(value)}
+      onKeyPress={(event) =>
+        event.key === "Enter" ? sendMessage(event) : null
+      }
+    />
+    <button className="sendButton" onClick={(e) => sendMessage(e)}>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M22 2L11 13"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M22 2L15 22L11 13L2 9L22 2Z"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  </form>
+);
 
 export default Input;
